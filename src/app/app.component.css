@@ -1,0 +1,13 @@
+.navbar {
+  box-shadow: 0 1px 6px 0 rgba(32,33,36,0.28);
+  background-color: aliceblue;
+}
+.form-control {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid grey;
+}
+.searchInput {
+  width: 70%;
+}

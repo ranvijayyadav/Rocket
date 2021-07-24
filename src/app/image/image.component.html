@@ -1,0 +1,22 @@
+<div class="card" >
+    
+    <button class="btn btn-primary" (click)="backHandler()">Back</button>
+    <!-- <div  (click)='selectImage(list)' class="food-image"> -->
+        <h1 class="card-title">Tag: {{image.searchTag}}</h1>
+      <img class="card-img-top hoverable" [src]="image.image.url_q" alt="Card image">
+
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Owner: {{image.image.ownername}}</li>
+        <li class="list-group-item"></li>
+      </ul>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Uploaded: {{image.image.dateupload}}</li>
+        <li class="list-group-item"></li>
+      </ul>
+
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Taken: {{image.image.datetaken}}</li>
+        <li class="list-group-item"></li>
+      </ul>
+    <!-- </div> -->
+</div>
