@@ -1,0 +1,52 @@
+<nav class="navbar sticky-top">
+  <div class="container">
+    <a class="navbar-brand">
+      Flickr App
+    </a>
+    
+  </div>
+</nav>
+
+<div class="container mt-5 mb-0">
+  <form *ngIf="!showImageDetail" class="form-inline">
+    <input [(formControl)]="inputQuery" (keydown.enter)= "searchQuery()" class="form-control mr-sm-2 searchInput" type="search" placeholder="Please enter a tag" aria-label="Please enter a tag">
+    <button (click)="resetInput()" class="btn btn-light my-2 my-sm-0" type="submit">Reset input</button>
+    <button (click)="searchQuery()" class="btn btn-info my-2 my-sm-0" type="submit">Submit</button>
+  </form>
+
+  <div class="spinner-border text-info" *ngIf="isLoading" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+
+  <div>
+  <div *ngIf="showImageDetail" class="card-groups">
+    <app-image [image]=selectedImage (backOut)="backHandler($event)"></app-image>
+  </div>
+
+  <div *ngIf=" !showImageDetail && inputImages.length > 0" class="card-groups cardData">
+    <H1>Requests</H1>
+    <div class="btn-group" role="group" aria-label="Sorted by">
+      <span>Sorted by</span>
+      <button type="button" class="btn btn-secondary">Left</button>
+      <button type="button" class="btn btn-secondary">Middle</button>
+      <button type="button" class="btn btn-secondary">Right</button>
+    </div>
+
+    <div class="card" *ngFor="let list of inputImages">
+        <div  (click)='selectImage(list)' class="food-image">
+
+          
+          <div class="card-body">
+            <h5 class="card-title">{{list.searchTag}}</h5>
+            <img class="card-img-top hoverable" [src]="list.image.url_q" alt="Card image">
+            <p class="card-text">Owner: {{list.image.ownername}}</p>
+          </div>
+        </div>
+    </div>
+  </div>
+
+</div>
+
+</div>
+
+<router-outlet></router-outlet>
